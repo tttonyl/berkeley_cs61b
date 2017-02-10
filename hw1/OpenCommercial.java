@@ -26,15 +26,19 @@ class OpenCommercial {
     System.out.print("Please enter the name of a company (without spaces): ");
     System.out.flush();        /* Make sure the line is printed immediately. */
     inputLine = keyboard.readLine();
-    System.out.println(inputLine);
     /* Replace this comment with your solution.  */
     String url = "http://www." + inputLine + ".com";
     URL u = new URL(url);
     InputStream ins = u.openStream();
     InputStreamReader isr = new InputStreamReader(ins);
-    BufferedReader whiteHouse = new BufferedReader(isr);
+    BufferedReader html = new BufferedReader(isr);
+    String[] lines = new String[5];
     for ( int i = 0; i < 5; i++) {
-	System.out.println(whiteHouse.readLine());
+	lines[i] = html.readLine();
+	
+    }
+    for (int j = 4; j >= 0; j--) {
+	System.out.println(lines[j]);
     }
   }
 }
